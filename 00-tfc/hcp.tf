@@ -26,6 +26,7 @@ resource "tfe_variable" "hcp_client_id" {
   key          = "HCP_CLIENT_ID"
   value        = "Provide me and make me sensitive"
   category     = "env"
+  sensitive    = true
   workspace_id = tfe_workspace.hcp.id
 }
 
@@ -33,6 +34,7 @@ resource "tfe_variable" "hcp_client_secret" {
   key          = "HCP_CLIENT_SECRET"
   value        = "Provide me and make me sensitive"
   category     = "env"
+  sensitive    = true
   workspace_id = tfe_workspace.hcp.id
 }
 
