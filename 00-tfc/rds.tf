@@ -19,7 +19,7 @@ resource "tfe_variable" "organization_name_for_rds" {
   key          = "tfc_organization_name"
   value        = var.tfc_organization_name
   category     = "terraform"
-  workspace_id = tfe_workspace.eks.id
+  workspace_id = tfe_workspace.rds.id
   description  = "Org Name"
   depends_on = [
     tfe_workspace.eks
