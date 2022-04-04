@@ -31,7 +31,9 @@ data "aws_security_group" "default" {
 }
 
 module "eks" {
-  source = "terraform-aws-modules/eks/aws"
+  source  = "terraform-aws-modules/eks/aws"
+  version = "17.24.0"
+
 
   cluster_version                      = "1.21"
   cluster_name                         = "devopsdaytlv2021"
