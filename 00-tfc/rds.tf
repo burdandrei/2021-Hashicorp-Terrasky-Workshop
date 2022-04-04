@@ -14,6 +14,17 @@ resource "tfe_workspace" "rds" {
 
 }
 
+// Need this for remote state sharing
+resource "tfe_variable" "organization_name_for_rds" {
+  key          = "tfc_organization_name"
+  value        = var.tfc_organization_name
+  category     = "terraform"
+  workspace_id = tfe_workspace.eks.id
+  description  = "Org Name"
+  depends_on = [
+    tfe_workspace.eks
+  ]
+}
 
 resource "tfe_run_trigger" "vpc-rds" {
   workspace_id  = tfe_workspace.rds.id
